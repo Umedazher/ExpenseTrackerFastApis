@@ -65,12 +65,14 @@ async def signup(customer: Customer):
         try:
             pq.write_table(updated_table, file_path)
         except Exception as e:
+            print(e)
             return {"message": "Not able to Sign Up", "Response": "Failure"}
     else:
         try:
             df.to_parquet(file_path)
             # return {"message": "Customer signed up successfully", "Response": "Success"}
         except Exception as e:
+            print(e)
             return {"message": "Not able to Sign Up", "Response": "Failure"}
 
     # Create connections Parquet file for the user
